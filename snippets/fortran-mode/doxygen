@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: doxygen
+# key: xy
+# --
+!> @file ${1:file name}.f
+!>@brief A brief description for $1 .
+!>
+!>
+!>@details This file ${2:balabala}.
+!>
+!>
+!>@author   xiaohai

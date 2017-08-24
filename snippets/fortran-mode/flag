@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: flag
+# key: flag
+# --
+c$$$      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<
+c$$$         WW       WW        WW RRRRRRR  II TTTTTTTTTT EEEEEE
+c$$$          WW     WW WW     WW  RR  RR   II     TT     EE
+c$$$           WW   WW   WW   WW   RRRRR    II     TT     EEEEEE
+c$$$            WW WW     WW WW    RR RR    II     TT     EE
+c$$$             WW        WW      RR  RR   II     TT     EEEEEE
+c$$$      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<
+                 $0
+c$$$      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<
+c$$$         WW       WW        WW RRRRRRR  II TTTTTTTTTT EEEEEE
+c$$$          WW     WW WW     WW  RR  RR   II     TT     EE
+c$$$           WW   WW   WW   WW   RRRRR    II     TT     EEEEEE
+c$$$            WW WW     WW WW    RR RR    II     TT     EE
+c$$$             WW        WW      RR  RR   II     TT     EEEEEE
+c$$$      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<
