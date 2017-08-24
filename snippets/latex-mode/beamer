@@ -3,10 +3,8 @@
 # key: beamer
 # --
 % -*- coding:utf-8 -*-
-\documentclass[12pt]{beamer}
+\documentclass[11pt]{beamer}
 \usepackage[space]{ctex}
-% \usetheme{Boadilla}
-\begin{document}
 
 %%%%%%%%%% 定义待使用的颜色%%%%%%%%%
 \definecolor{seagreen}{RGB}{46, 139, 87}
@@ -20,15 +18,15 @@
 % 设置大标题的颜色和背景颜色，以及字体的控制。
 \setbeamertemplate{title}{\vspace{-3mm}}
 \setbeamercolor{title}{fg=seagreen, bg=white}
-\setbeamerfont{title}{family=\rmfamily, series=\bfseries, size=\huge}
+\setbeamerfont{title}{family=\rmfamily, series=\bfseries}
 
 %%%%%%%%%% 帧标题的控制%%%%%%%%%%%%%
 % 设置帧标题中心对齐，位置降低2.5mm。
-\setbeamertemplate{frametitle}{\vspace{2.5mm}\centering\insertframetitle\par}
+\setbeamertemplate{frametitle}{\vspace{1mm}\centering\insertframetitle\par}
 % 帧标题颜色为seagreen，背景为白色。
 \setbeamercolor{frametitle}{fg=seagreen, bg=white}
 % 帧标题字体的控制
-\setbeamerfont{frametitle}{family=\sffamily, series=\bfseries, shape=\sffamily, size=\large}
+\setbeamerfont{frametitle}{family=\sffamily, series=\bfseries, shape=\sffamily}
 
 %%%%%%%%%%% 图表的标题%%%%%%%%%%%%%
 % 给插图或者表添加序号。
@@ -72,6 +70,11 @@
 %%%%%%%%%%设置目录颜色为黑%%%%%%%%%%%
 \hypersetup{linkcolor=black}
 
+%%%%%%%%%% 符号条的操作设置%%%%%%%%%%%
+% \setbeamertemplate{navigation symbols}[only frame symbol]
+%如果看着不爽可以直接取消,取消的方式为
+\setbeamertemplate{navigation symbols}{}    
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -90,6 +93,8 @@
 \date{February 5, 2017}
 \logo{}
 
+\begin{document}
+
 \begin{frame}
   \maketitle
 \end{frame}
@@ -101,7 +106,8 @@
 
 \section{${1:sectiontitle}}
 \begin{frame}
-  \frametitle{${0:FRAMETITLE}}
+  \frametitle{${2:FRAMETITLE}}
+  $0
 \end{frame}
 
 \end{document}
