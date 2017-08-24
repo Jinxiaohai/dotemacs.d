@@ -28,7 +28,7 @@
 % 帧标题颜色为seagreen，背景为白色。
 \setbeamercolor{frametitle}{fg=seagreen, bg=white}
 % 帧标题字体的控制
-\setbeamerfont{frametitle}{family=\sffamily, series=\bfseries, size=\large}
+\setbeamerfont{frametitle}{family=\sffamily, series=\bfseries, shape=\sffamily, size=\large}
 
 %%%%%%%%%%% 图表的标题%%%%%%%%%%%%%
 % 给插图或者表添加序号。
@@ -45,6 +45,7 @@
 %%%%%%%%%%% 列表的控制%%%%%%%%%%%%
 % 将常规列表的标志样式改为球形
 \setbeamertemplate{itemize item}[ball]
+\setbeamercolor{item}{fg=snow, bg=white}
 
 %%%%%%%% 底边导航条的控制%%%%%%%%%
 % wd为盒子的宽度, 下面的vspace*命令想要有效beamercolorbox必须带dp参数.
@@ -53,24 +54,35 @@
     \leavevmode%
     \hbox{%
       \begin{beamercolorbox}[wd=0.25\paperwidth, ht=1ex, dp=1ex, center]{author in 
-          head/foot}\usebeamerfont{author in head/foot} \color{darkmagenta}{\insertshortauthor}
+          head/foot}\usebeamerfont{author in head/foot} \color{seagreen}{\insertshortauthor}
       \end{beamercolorbox}%
       
       \begin{beamercolorbox}[wd=0.5\paperwidth, ht=1ex, dp=1ex, center]{title in 
-          head/foot}\usebeamerfont{title in head/foot} \color{darkmagenta}{会议名字}
+          head/foot}\usebeamerfont{title in head/foot} \color{seagreen}{会议名字}
       \end{beamercolorbox}%
 
       \begin{beamercolorbox}[wd=0.25\paperwidth, ht=1ex, dp=1ex, center]{date 
-          in head/foot} \usebeamerfont{date in head/foot} \color{darkmagenta}{\insertshortdate{}} 
+          in head/foot} \usebeamerfont{date in head/foot} \color{seagreen}{\insertshortdate{}} 
         \hspace*{2.5mm} \color{darkblue}{\insertframenumber{}}
       \end{beamercolorbox}%
     }
     \vskip0pt}%
 }
 
+%%%%%%%%%%设置目录颜色为黑%%%%%%%%%%%
+\hypersetup{linkcolor=black}
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{I am Title}
 \author{金小海}
@@ -82,11 +94,14 @@
   \maketitle
 \end{frame}
 
-
 \begin{frame}
-  \frametitle{I am tableofcontents}
+  \frametitle{Outline}
   \tableofcontents
 \end{frame}
 
+\section{${1:sectiontitle}}
+\begin{frame}
+  \frametitle{${0:FRAMETITLE}}
+\end{frame}
 
 \end{document}
