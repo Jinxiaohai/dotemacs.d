@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: talk
-# key: talk
+# name: beamer
+# key: beamer
 # --
 % -*- coding:utf-8 -*-
 \documentclass[12pt]{beamer}
