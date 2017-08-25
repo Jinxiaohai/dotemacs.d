@@ -47,21 +47,25 @@
 
 %%%%%%%% 底边导航条的控制%%%%%%%%%
 % wd为盒子的宽度, 下面的vspace*命令想要有效beamercolorbox必须带dp参数.
+% ht控制框的高度，
+\setbeamercolor{firstcolor}{bg=snow, fg=seagreen}
+\setbeamercolor{secondcolor}{bg=seashell, fg=seagreen}
+\setbeamercolor{thirdcolor}{bg=antiquewhite, fg=seagreen}
 \setbeamertemplate{footline}{
-  \vspace*{-4mm}{
+  \vspace*{3mm}{
     \leavevmode%
     \hbox{%
-      \begin{beamercolorbox}[wd=0.25\paperwidth, ht=1ex, dp=1ex, center]{author in 
-          head/foot}\usebeamerfont{author in head/foot} \color{seagreen}{\insertshortauthor}
+      \begin{beamercolorbox}[wd=0.25\paperwidth, ht=2ex, dp=0.8ex, center, shadow=true]{firstcolor}
+        {\insertshortauthor}
       \end{beamercolorbox}%
       
-      \begin{beamercolorbox}[wd=0.5\paperwidth, ht=1ex, dp=1ex, center]{title in 
-          head/foot}\usebeamerfont{title in head/foot} \color{seagreen}{会议名字}
+      \begin{beamercolorbox}[wd=0.5\paperwidth, ht=2ex, dp=0.8ex, center, shadow=true]{secondcolor}
+        {会议名字}
       \end{beamercolorbox}%
 
-      \begin{beamercolorbox}[wd=0.25\paperwidth, ht=1ex, dp=1ex, center]{date 
-          in head/foot} \usebeamerfont{date in head/foot} \color{seagreen}{\insertshortdate{}} 
-        \hspace*{2.5mm} \color{darkblue}{\insertframenumber{}}
+      \begin{beamercolorbox}[wd=0.25\paperwidth, ht=2ex, dp=0.8ex, center, shadow=true]{thirdcolor} 
+        {\insertshortdate{}} \hspace*{2.5mm} 
+        {\color{darkblue}\insertframenumber{}} / \color{seagreen}{\inserttotalframenumber}
       \end{beamercolorbox}%
     }
     \vskip0pt}%
