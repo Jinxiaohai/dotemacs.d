@@ -13,15 +13,15 @@
 (setq ansi-color-for-comint-mode t)
 ;;------语言环境字符集设置结束------------
 
-;;---------------缩进---------------------
+;;缩进
 (setq tex-basic-offset 4)
 (setq latex-basic-offset 4)
 (setq php-basic-offset 4)
 
-;;--------------去行尾空格------------------
-;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+;;去行尾空格
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;;--------------窗口界面设置------------------
+;;窗口界面设置
 ;;取消滚动栏
 (set-scroll-bar-mode nil)
 ;;取消工具栏
@@ -34,27 +34,15 @@
 	(right-fringe)
 	(left-fringe)))
 
-;; 字体和颜色的控制
-(set-face-foreground 'highlight "red")
-(set-face-background 'highlight "red")
-(set-face-foreground 'region "cyan")
-(set-face-background 'region "blue")
-(set-face-foreground 'secondary-selection "skyblue")
-(set-face-background 'secondary-selection "darkblue")
-
-
-;;------------显示时间设置------------------------------
+;;显示时间设置
 (display-time-mode 1);;启用时间显示设置，在minibuffer上面的那个杠上
 (setq display-time-24hr-format t);;时间使用24小时制
 (setq display-time-day-and-date t);;时间显示包括日期和具体时间
 (setq display-time-use-mail-icon t);;时间栏旁边启用邮件设置
 (setq display-time-interval 10);;时间的变化频率，单位多少来着？
 
-
-;;------------定制操作习惯--------------------
 ;;设置打开文件的缺省路径
 (setq default-directory "~/")
-
 
 ;;关闭烦人的出错时的提示声
 (setq visible-bell t)
@@ -68,18 +56,13 @@
 ;; 改变 Emacs 固执的要你回答 yes 的行为。按 y 或空格键表示 yes，n 表示 no。
 (fset 'yes-or-no-p 'y-or-n-p)
 
-
-;; ;; 显示行列号
+;; 显示行列号(缓冲区的)
 (setq column-number-mode t)
 (setq line-number-mode t)
 
-;; ;;不要在鼠标点击的那个地方插入剪贴板内容。我不喜欢那样，经常把我的文档搞的一团糟。我觉得先用光标定位，然后鼠标中键点击要好的多。不管你的光标在文档的那个位置，或是在 minibuffer，鼠标中键一点击，X selection 的内容就被插入到那个位置。
-(global-linum-mode t)
-(setq mouse-yank-at-point t)
 
 ;;设置粘贴缓冲条目数量.用一个很大的kill ring(最多的记录个数). 这样防止我不小心删掉重要的东西
 (setq kill-ring-max 200)
-
 
 ;; Autofill in all modes;;
 (setq-default auto-fill-function 'do-auto-fill)
@@ -94,73 +77,40 @@
 ;;不用 TAB 字符来indent, 这会引起很多奇怪的错误。编辑 Makefile 的时候也不用担心，因为 makefile-mode 会把 TAB 键设置成真正的 TAB 字符，并且加亮显示的。
 (setq tab-stop-list ())
 
-
 ;;设置 sentence-end 可以识别中文标点。不用在 fill 时在句号后插入两个空格。
 (setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
 (setq sentence-end-double-space nil)
 
-
 ;;可以递归的使用 minibuffer
 (setq enable-recursive-minibuffers t)
 
-
 ;;防止页面滚动时跳动， scroll-margin 3 可以在靠近屏幕边沿3行时就开始滚动，可以很好的看到上下文。
 (setq scroll-margin 3 scroll-conservatively 10000)
-
 
 ;;设置缺省主模式是text，,并进入auto-fill次模式.而不是基本模式fundamental-mode
 (setq default-major-mode 'text-mode)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
-
 ;;打开括号匹配显示模式
 (show-paren-mode t)
-
 
 ;;括号匹配时可以高亮显示另外一边的括号，但光标不会烦人的跳到另一个括号处。
 (setq show-paren-style 'parenthesis)
 
-
 ;;光标靠近鼠标指针时，让鼠标指针自动让开，别挡住视线。
 (mouse-avoidance-mode 'animate)
-
 
 ;;在标题栏显示buffer的名字，而不是 emacs@wangyin.com 这样没用的提示。
 (setq frame-title-format "emacs@%b")
 
-
-;;让 Emacs 可以直接打开和显示图片。
-(setq auto-image-file-mode t)
-
-
-;;打开压缩文件时自动解压缩。
-(auto-compression-mode 1)
-
-
-;;进行语法加亮。
-(setq global-font-lock-mode t)
-
-
 ;; 在行首 C-k 时，同时删除该行。
 (setq-default kill-whole-line t)
-
-
-;;当你在shell、telnet、w3m等模式下时，必然碰到过要输入密码的情况,此时加密显出你的密码
-(add-hook 'comint-output-filter-functions
-	  'comint-watch-for-password-prompt)
-
 
 ;; 设定不产生备份文件
 (setq make-backup-files nil)
 
-
 ;;自动保存模式
 (setq auto-save-mode nil)
-
-
-;; 不生成临时文件
-(setq-default make-backup-files nil)
-
 
 ;;允许屏幕左移
 (put 'scroll-left 'disabled nil)
@@ -175,28 +125,19 @@
 (put 'downcase-region 'disabled nil)
 (put 'LaTeX-hide-environment 'disabled nil)
 
-
 ;;允许emacs和外部其他程序的粘贴
 (setq x-select-enable-clipboard t)
-
-
-;;使用鼠标中键可以粘贴
-;;(setq mouse-yank-at-point t)
-
 
 ;;设置有用的个人信息,这在很多地方有用。
 (setq user-full-name "xiaohai")
 ;;(setq user-mail-address "jinxiaohai@sinap.ac.cn")
 (setq user-mail-address "xiaohaijin@outlook.com")
 
-
 ;;Non-nil if Transient-Mark mode is enabled.
 (setq-default transient-mark-mode t)
 
-
 ;; 当光标在行尾上下移动的时候，始终保持在行尾。
 (setq track-eol t)
-
 
 ;; 当浏览 man page 时，直接跳转到 man buffer。
 (setq Man-notify-method 'pushy)
@@ -204,7 +145,6 @@
 ;;设置home键指向buffer开头，end键指向buffer结尾
 (global-set-key [home] 'beginning-of-buffer)
 (global-set-key [end] 'end-of-buffer)
-
 
 ;; C-f5, 设置编译命令; f5, 保存所有文件然后编译当前窗口文件
 (defun du-onekey-compile ()
@@ -216,58 +156,17 @@
 (global-set-key [C-f5] 'compile)
 (global-set-key [f5] 'du-onekey-compile)
 
-
-;;F6设置为在Emacs中调用gdb
-(global-set-key [f6] 'gdb)
-
-
-;;目的是开一个shell的小buffer，用于更方便地测试程序(也就是运行程序了)，我经常会用到。
-;;f8就是另开一个buffer然后打开shell，C-f8则是在当前的buffer打开shell
-(global-set-key [C-f7] 'previous-error)
-(global-set-key [f7] 'next-error)
-(defun open-eshell-other-buffer ()
-  "Open eshell in other buffer"
-  (interactive)
-  (split-window-vertically)
-  (eshell))
-(global-set-key [(f8)] 'open-eshell-other-buffer)
-(global-set-key [C-f8] 'eshell)
-
-
-;;可以显示所有目录以及文件
-(setq speedbar-show-unknown-files t)
-
-
-;;不自动刷新，手动 g 刷新
-(setq dframe-update-speed nil)
-(setq speedbar-update-flag nil)
-
-
-;;设置F12 快速察看日程安排
-(global-set-key [f12] 'list-bookmarks)
-
-
 ;; 设置时间戳，标识出最后一次保存文件的时间。
 (setq time-stamp-active t)
 (setq time-stamp-warn-inactive t)
-(setq time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S chunyu")
-
+(setq time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S xiaohai")
 
 ;;设置M-g为goto-line
 (global-set-key (kbd "M-g") 'goto-line)
 
-
 ;;取消control+space键设为mark
 (global-set-key (kbd "C-SPC") 'nil)
 
-
-;;用win+space键来set-mark，这样，C-SPC就可以用来调用外部输入法了。
-(global-set-key (kbd "s-SPC") 'set-mark-command)
-
-;;----------定制操作习惯结束-------------
-
-
-;;-------------方便编程操作设置----------------
 ;;代码折叠
 (load-library "hideshow")
 (add-hook 'c-mode-hook 'hs-minor-mode)
@@ -285,34 +184,10 @@
 ;; C-c @ C-h   折叠当前代码区
 ;; C-c @ C-c   折叠/显示当前代码区
 
-
-;;css-mode.el编辑css文件
-(autoload 'css-mode "css-mode" "CSS editing mode" t)
-
-
-;;把buffer的内容连同颜色转为html格式
-(autoload 'htmlize-buffer "htmlize" "HTMLize mode" t)
-
-
-;;folding.el 编辑文本的一部分，其它部分折叠起来
-(autoload 'folding-mode "folding" "Folding mode" t)
-(autoload 'turn-off-folding-mode "folding" "Folding mode" t)
-(autoload 'turn-on-folding-mode "folding" "Folding mode" t)
-(setq auto-mode-alist
-;; 将文件模式和文件后缀关联起来
-      (append '(("\\.py\\'" . python-mode)
-		("\\.s?html?\\'" . html-helper-mode)
-		("\\.asp\\'" . html-helper-mode)
-		("\\.phtml\\'" . html-helper-mode)
-		("\\.css\\'" . css-mode))
-	      auto-mode-alist))
-(add-hook 'c-mode-hook
-          '(lambda ()
-             (c-set-style "GNU")))
 ;;启用自动开始新的一行
-(add-hook 'c-mode-hook
+(add-hook 'cpp-mode-hook
           '(lambda ()
-             (c-toggle-auto-state)))
+             (cpp-toggle-auto-state)))
 ;;------------方便编程操作设置结束--------------------
 
 
@@ -388,6 +263,7 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "AR PL UMing HK" :foundry "unknown" :slant normal :weight light :height 173 :width normal)))))
 
+
 ;; ;;----------------插件yasnippet------------------------
 (add-to-list 'load-path
              "~/.emacs.d/plugins/yasnippet")
@@ -406,16 +282,16 @@
 ;; (add-hook 'c++-mode-hook '(lambda () (company-mode)))
 ;;设置最小的开始补全单词数
 (add-hook 'after-init-hook 'global-company-mode)
-(setq company-minimum-prefix-length 1)
+(setq company-minimum-prefix-length 0)
 ;;设置延迟时间
 (setq company-idle-delay 0)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;基于company的其它插件;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;===============company-auctex=================
 (add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/company-auctex")
 (require 'company-auctex)
 (company-auctex-init)
-
 
 
 ;;=====================tabbar=========================
@@ -449,7 +325,15 @@
                     :box '(:line-width 3 :color "gray"))
 
 ;; USEFUL: set tabbar's separator gap
-(custom-set-variables '(tabbar-separator (quote (1.5))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("b81bfd85aed18e4341dbf4d461ed42d75ec78820a60ce86730fc17fc949389b2" "365d9553de0e0d658af60cff7b8f891ca185a2d7ba3fc6d29aadba69f5194c7f" "6f11ad991da959fa8de046f7f8271b22d3a97ee7b6eca62c81d5a917790a45d9" default)))
+ '(tabbar-separator (quote (1.5))))
 
 
 ;;==================doxymacs================
@@ -466,7 +350,6 @@
   (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
       (doxymacs-font-lock)))
 (add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook)
-
 
 ;;打造的注释模板
 (defconst doxymacs-C++-file-comment-template
@@ -489,8 +372,6 @@
       "*" "Copyright (c) 2016, Jinxiaohai."> n
       "*" "******************************************************************************/"> n)
    "Default C++-style template for file documentation.")
-
-
 ;; C-c d ? will look up documentation for the symbol under the point
 ;; C-c d r will rescan your doxygen tags file
 ;; C-c d f will insert a Doxygen comment for the next function
@@ -505,15 +386,6 @@
 (add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/autopair/")
 (require 'autopair)
 (autopair-global-mode)
-
-
-;;=====================ido======================
-;;ido的配置,这个可以使你在用C-x C-f打开文件的时候在后面有提示;
-;;这里是直接打开了ido的支持，在emacs23中这个是自带的.
-(ido-mode t)
-(setq ido-save-directory-list-file nil)
-
-
 
 
 ;;==================smex========================
@@ -565,35 +437,11 @@
         ("melpa" . "https://melpa.org/packages")))
 
 
-;;------------------speedbar的控制--------------------
-;;load sr-speedbar
-(add-to-list 'load-path "~/.emacs.d/plugins/sr-speedbar/")
-(require 'sr-speedbar)
-(setq speedbar-show-unknown-files t)
-(setq speedbar-use-images nil)
-(setq sr-speedbar-width 15)
-(setq sr-speedbar-right-side nil)
-(global-set-key (kbd "<f5>") (lambda()
-                             (interactive)
-                             (sr-speedbar-toggle)))
-;;单独设置sr-speedbar字体大小
-(make-face 'speedbar-face)
-;;(set-face-font 'speedbar-face "Inconsolata-6")
-(setq speedbar-mode-hook '(lambda () (buffer-face-set 'speedbar-face)))
-
-;;Make Sr-speedbar open files in the next window, instead of in the previous window.
-(defun select-next-window ()
-  (other-window 1))
-(defun my-sr-speedbar-open-hook ()
-  (add-hook 'speedbar-before-visiting-file-hook 'select-next-window t)
-  (add-hook 'speedbar-before-visiting-tag-hook 'select-next-window t))
-(advice-add 'sr-speedbar-open :after #'my-sr-speedbar-open-hook)
-
-
 ;;=================slime========================
 ;;加载slime
 (add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/slime-master")
 (require 'slime-autoloads)
+
 
 ;;=================SBCL========================
 ;;加载SBCL
@@ -613,6 +461,7 @@
 (add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/rainbow-delimiters")
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'LaTeX-mode-hook #'rainbow-delimiters-mode)
 
 
 ;;================markdown-mode====================
@@ -625,6 +474,173 @@
 (autoload 'gfm-mode "markdown-mode"
   "major mode for editing Github Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README \\.md\\'" . gfm-mode))
+
+
+;;==============indent-guide==============
+(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/indent-guide")
+(require 'indent-guide)
+;;全局启动
+(indent-guide-global-mode)
+;;设置颜色
+;; (set-face-background 'indent-guide-face "dimgray")
+
+
+;;============ido-vertical-mode===========
+;;这里是直接打开了ido的支持，在emacs23中这个是自带的.
+(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/ido-vertical-mode")
+(require 'ido-vertical-mode)
+(ido-mode t)
+(setq ido-save-directory-list-file nil)
+(ido-vertical-mode t)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+
+
+;;================neotree================
+(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/neotree")
+(require 'neotree)
+(global-set-key [f5] 'neotree-toggle)
+(setq neotree-theme (if (display-grayscale-p) 'icons 'arrow))
+
+
+;;=============doom-themes===============
+(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/emacs-doom-themes")
+(require 'doom-themes)
+(setq doom-themes-enable-bold t
+      doom-themes-enable-italic t)
+(load-theme 'doom-one t) ;;默认色,看着最漂亮的
+;; (load-theme 'doom-vibrant) ;;看着还行
+;; (load-theme 'doom-molokai) ;;颜色太亮
+;; (load-theme 'doom-nova) ;;颜色太亮
+(doom-themes-visual-bell-config)
+(doom-themes-org-config)
+
+
+;;============linum-relative==========
+(add-to-list 'load-path "/home/xiaohai/.emacs.d/plugins/linum-relative")
+(require 'linum-relative)
+(global-linum-mode t)
+(linum-relative-on)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -669,50 +685,6 @@
 ;;         ))
 ;; (setq web-mode-enable-auto-pairing t)
 ;; (setq web-mode-enable-css-colorization t)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -803,12 +775,6 @@
 ;; ;;(require 'ecb)
 
 
-
-;; ;;================smart-mode-line===============
-;; ;; (add-to-list 'load-path "~/.emacs.d/plugins/smart-mode-line")
-;; ;; (require 'smart-mode-line-dark-theme)
-;; ;; (require 'smart-mode-line-light-theme)
-;; ;; (require 'smart-mode-line-respectful-theme)
 
 
 ;; ;;==================powerline===================
